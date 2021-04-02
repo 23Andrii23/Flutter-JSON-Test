@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_json/Constants/constants.dart';
 import 'package:flutter_app_json/HTTP_Service/http_service_albums.dart';
 import 'package:flutter_app_json/Model/user_model.dart';
 import 'HTTP_Service/http_service_photo.dart';
@@ -49,11 +50,10 @@ class _UsersPageState extends State<UsersPage> {
                       ),
                       trailing: Icon(Icons.arrow_forward_ios),
                       onTap: () =>
-                          Navigator.of(context)
-                              .pushNamed("/b", arguments: users),
+                          Navigator.of(context).pushNamed(Constant.albums, arguments: users),
                     ))
                     .toList(),
-              );
+                );
             }
             return Center(child: CircularProgressIndicator());
           }),

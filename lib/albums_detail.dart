@@ -10,15 +10,11 @@ final HttpServiceAlbum httpServiceAlbum = HttpServiceAlbum();
 final HttpServicePhotos httpServicePhotos = HttpServicePhotos();
 
 class AlbumsDetails extends StatelessWidget {
-  // final Photos photos;
-  // final Albums albums;
-  // final Users users;
-  //
-  // const AlbumsDetails({@required this.users, @required this.albums, this.photos});
+  final Albums albums;
+  AlbumsDetails({this.albums});
 
   @override
   Widget build(BuildContext context) {
-    final Albums albums = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text("Photos"),
