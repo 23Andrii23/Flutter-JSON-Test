@@ -2,10 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app_json/EmptyScreen/Like.dart';
 import 'package:flutter_app_json/EmptyScreen/Me.dart';
+import 'package:flutter_app_json/EmptyScreen/Scanner.dart';
 import 'package:flutter_app_json/EmptyScreen/Search.dart';
-import 'package:flutter_app_json/bottom_bar.dart';
 import 'package:flutter_app_json/users.dart';
-import 'package:cupertino_icons/cupertino_icons.dart';
+import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -13,33 +13,41 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   int index = 0;
 
-  final screns = <Widget>[
+  final screens = <Widget>[
     UsersPage(),
     Me(),
+    Scanner(),
     Search(),
     Like(),
   ];
 
-  Widget currentScreen;
-  final PageStorageBucket bucket = PageStorageBucket();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: screns[index],
-      floatingActionButton: FloatingActionButton(
-        child: Icon(CupertinoIcons.barcode_viewfinder),
-        onPressed: () {},
-        backgroundColor: Colors.black,
-        shape: CircleBorder(side: BorderSide(color: Colors.white, width: 5.0)),
+      body: screens[index],
+      bottomNavigationBar: ConvexAppBar(
+        style: TabStyle.fixedCircle,
+        backgroundColor: Colors.white,
+        color: Colors.grey,
+        activeColor: Colors.black,
+        items: [
+          TabItem(icon: Icons.home_outlined, title: "HOME", activeIcon: Icons.home),
+          TabItem(icon: CupertinoIcons.ticket, title: "DISCOUNT", activeIcon: CupertinoIcons.ticket_fill),
+          TabItem(icon: CupertinoIcons.barcode_viewfinder, ),
+          TabItem(icon: Icons.favorite_border, title: "FAVORITE", activeIcon: Icons.favorite),
+          TabItem(icon: Icons.more_horiz_outlined, title: "MORE", activeIcon: Icons.more_horiz),
+        ],
+        initialActiveIndex: 0,
+        onTap: (int index) {
+          setState(() {
+            this.index = index;
+          });
+        },
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: TabBarMaterialWidget(
-        index: index,
-        onChangeTab: onChangeTab,
-      ),
+
     );
   }
 

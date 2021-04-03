@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   http: 0.13.1
+  convex_bottom_bar: ^3.0.0
 
 
   # The following adds the Cupertino Icons font to your application.
