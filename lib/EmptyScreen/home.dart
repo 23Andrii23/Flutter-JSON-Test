@@ -33,12 +33,17 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         color: Colors.grey,
         activeColor: Colors.black,
+        top: -35,
+        curveSize: 78,
+        curve: Curves.ease,
         items: [
-          TabItem(icon: Icons.home_outlined, title: "HOME", activeIcon: Icons.home),
-          TabItem(icon: CupertinoIcons.ticket, title: "DISCOUNT", activeIcon: CupertinoIcons.ticket_fill),
-          TabItem(icon: CupertinoIcons.barcode_viewfinder, ),
-          TabItem(icon: Icons.favorite_border, title: "FAVORITE", activeIcon: Icons.favorite),
-          TabItem(icon: Icons.more_horiz_outlined, title: "MORE", activeIcon: Icons.more_horiz),
+          TabItem(icon: Icons.home_outlined, activeIcon: Icons.home, title: "HOME"),
+          TabItem(icon: CupertinoIcons.ticket, activeIcon: CupertinoIcons.ticket_fill, title: "DISCOUNT"),
+          TabItem(icon: Container(decoration: BoxDecoration(
+              shape: BoxShape.circle, color: Colors.black),
+            child: Icon(CupertinoIcons.barcode_viewfinder, color: Colors.white, size: 50,),)),
+          TabItem(icon: Icons.favorite_border, activeIcon: Icons.favorite, title: "FAVORITE"),
+          TabItem(icon: Icons.more_horiz_outlined, activeIcon: Icons.more_horiz,  title: "MORE"),
         ],
         initialActiveIndex: 0,
         onTap: (int index) {
