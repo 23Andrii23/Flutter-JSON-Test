@@ -33,7 +33,7 @@ class _HomeState extends State<Home> {
         backgroundColor: Colors.white,
         color: Colors.grey,
         activeColor: Colors.black,
-        top: -35,
+        //top: -35,
         curveSize: 78,
         curve: Curves.ease,
         items: [
