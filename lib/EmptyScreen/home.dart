@@ -13,6 +13,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
   int index = 0;
 
   final screens = <Widget>[
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       body: screens[index],
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.fixedCircle,
@@ -75,3 +76,4 @@ class _HomeState extends State<Home> {
     });
   }
 }
+
