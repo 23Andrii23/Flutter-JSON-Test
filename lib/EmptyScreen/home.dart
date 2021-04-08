@@ -26,33 +26,47 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+     return Scaffold(
       body: screens[index],
       bottomNavigationBar: ConvexAppBar(
         style: TabStyle.fixedCircle,
         backgroundColor: Colors.white,
         color: Colors.grey,
         activeColor: Colors.black,
-        top: -35,
-        curveSize: 78,
-        curve: Curves.ease,
+        top: -40,
+        curveSize: 85,
         items: [
-          TabItem(icon: Icons.home_outlined, activeIcon: Icons.home, title: "HOME"),
-          TabItem(icon: CupertinoIcons.ticket, activeIcon: CupertinoIcons.ticket_fill, title: "DISCOUNT"),
-          TabItem(icon: Container(decoration: BoxDecoration(
-              shape: BoxShape.circle, color: Colors.black),
-            child: Icon(CupertinoIcons.barcode_viewfinder, color: Colors.white, size: 50,),)),
-          TabItem(icon: Icons.favorite_border, activeIcon: Icons.favorite, title: "FAVORITE"),
-          TabItem(icon: Icons.more_horiz_outlined, activeIcon: Icons.more_horiz,  title: "MORE"),
+          TabItem(
+              icon: Icons.home_outlined, activeIcon: Icons.home, title: "HOME"),
+          TabItem(
+              icon: CupertinoIcons.ticket,
+              activeIcon: CupertinoIcons.ticket_fill,
+              title: "DISCOUNT"),
+          TabItem(
+              icon: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.black,
+            ),
+            child: Center(
+                child: Icon(
+              CupertinoIcons.barcode_viewfinder,
+              color: Colors.white,
+              size: 50,
+            )),
+          )),
+          TabItem(
+              icon: Icons.favorite_border,
+              activeIcon: Icons.favorite,
+              title: "FAVORITE"),
+          TabItem(
+              icon: Icons.more_horiz_outlined,
+              activeIcon: Icons.more_horiz,
+              title: "MORE"),
         ],
         initialActiveIndex: 0,
-        onTap: (int index) {
-          setState(() {
-            this.index = index;
-          });
-        },
+        onTap: onChangeTab,
       ),
-
     );
   }
 
@@ -62,3 +76,4 @@ class _HomeState extends State<Home> {
     });
   }
 }
+
