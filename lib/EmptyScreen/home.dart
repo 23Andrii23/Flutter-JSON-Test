@@ -13,7 +13,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   int index = 0;
 
   final screens = <Widget>[
@@ -26,7 +25,6 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: screens[index],
       bottomNavigationBar: ConvexAppBar(
@@ -37,15 +35,33 @@ class _HomeState extends State<Home> {
         top: -40,
         curveSize: 85,
         items: [
-          TabItem(icon: Icons.home_outlined, activeIcon: Icons.home, title: "HOME"),
-          TabItem(icon: CupertinoIcons.ticket, activeIcon: CupertinoIcons.ticket_fill, title: "DISCOUNT"),
-          TabItem(icon: Container(decoration: BoxDecoration(
+          TabItem(
+              icon: Icons.home_outlined, activeIcon: Icons.home, title: "HOME"),
+          TabItem(
+              icon: CupertinoIcons.ticket,
+              activeIcon: CupertinoIcons.ticket_fill,
+              title: "DISCOUNT"),
+          TabItem(
+              icon: Container(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: Colors.black,
-          ),
-            child: Center(child: Icon(CupertinoIcons.barcode_viewfinder, color: Colors.white, size: 50,)),)),
-          TabItem(icon: Icons.favorite_border, activeIcon: Icons.favorite, title: "FAVORITE"),
-          TabItem(icon: Icons.more_horiz_outlined, activeIcon: Icons.more_horiz,  title: "MORE"),
+            ),
+            child: Center(
+                child: Icon(
+              CupertinoIcons.barcode_viewfinder,
+              color: Colors.white,
+              size: 50,
+            )),
+          )),
+          TabItem(
+              icon: Icons.favorite_border,
+              activeIcon: Icons.favorite,
+              title: "FAVORITE"),
+          TabItem(
+              icon: Icons.more_horiz_outlined,
+              activeIcon: Icons.more_horiz,
+              title: "MORE"),
         ],
         initialActiveIndex: 0,
         onTap: onChangeTab,
